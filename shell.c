@@ -2,7 +2,7 @@
 
 int main() {
 	ssize_t chars_read;
-	char *line = NULL, **av, *delimeter = " \n";
+	char *line = NULL, **av = NULL, *delimeter = " \n";
 	size_t n = 0;
 
 
@@ -16,16 +16,12 @@ int main() {
 			break;
 		}
 		av = get_argv(line, delimeter);
-		if (av == NULL)
-		{
-			continue;
-		}
-		else
+		if (av != NULL)
 		{
 			execute_command(av);
 		}
+		free_tokens(av);
 	}
 	free(line);
-	free_tokens(av);
 	return (0);
 }

@@ -19,7 +19,6 @@ ssize_t execute_command(char **av)
 	command = handle_path(av[0]);
 	if (command == NULL)
 	{
-		fprintf(stderr, "%s: not found\n", av[0]);
 		return (-1);
 	}
 	pid = fork();
