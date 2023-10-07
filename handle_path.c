@@ -31,7 +31,8 @@ char *handle_path(char *command)
 	{
 		if (stat(command, &st) == 0)
 		{
-			return (command);
+			full_path = _strdup(command);
+			return (full_path);
 		}
 	}
 	else

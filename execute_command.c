@@ -11,7 +11,7 @@ ssize_t execute_command(char **av)
 	char *command;
 	pid_t pid;
 
-	if (av[0] == NULL)
+	if (av == NULL)
 	{
 		fprintf(stderr,  "Invalid command or arguments\n");
 		return (-1);
@@ -28,7 +28,7 @@ ssize_t execute_command(char **av)
 		handle_err("fork", command);
 		return (-1);
 	}
-	if (pid == 0)
+	else if (pid == 0)
 	{
 		if (execve(command, av, environ) == -1)
 		{

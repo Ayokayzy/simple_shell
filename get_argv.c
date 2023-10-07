@@ -57,10 +57,13 @@ void free_tokens(char **av)
 {
 	int idx = 0;
 
+	if (av == NULL)
+		return;
+
 	while (av[idx] != NULL)
 	{
 		free(av[idx]);
 		idx++;
 	}
-	free(av[idx]);
+	free(av);
 } 

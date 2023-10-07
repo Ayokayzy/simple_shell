@@ -17,7 +17,10 @@ char *_which(char *filename)
 
 	path = _getenv("PATH");
 	if (path == NULL)
+	{
+		free(path);
 		return (NULL);
+	}
 
 	token = strtok(path, ":");
 	while (token != NULL)
