@@ -14,12 +14,12 @@ char *_getenv(const char *name)
 
 	while (environ[idx] != NULL)
 	{
-		env = strdup(environ[idx]);
+		env = _strdup(environ[idx]);
 		token = strtok(env, "=");
 
 		if (token != NULL && strcmp(token, name) == 0)
 		{
-			value = strdup(strtok(NULL, ""));
+			value = _strdup(strtok(NULL, ""));
 			free(env);
 			return (value);
 		}

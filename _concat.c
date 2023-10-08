@@ -42,18 +42,3 @@ char *_concat(char *a, char *b, char *c)
 	new_mem[i] = '\0';
 	return (new_mem);
 }
-
-/*
- * int main()
- * {
- *	char *new_str;
- *
- *	new_str = _concat("Hi, ", "how are ", "you!");
- *	if (new_str == NULL)
- *		printf("NULL");
- *
- *	printf("%s\n", new_str);
- *	free(new_str);
- *	return (0);
- * }
- */

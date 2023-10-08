@@ -4,7 +4,7 @@
  * prompt - displays a cursor so a user can type something
  */
 
-void prompt()
+void prompt(void)
 {
 	int interactive = isatty(STDIN_FILENO);
 
