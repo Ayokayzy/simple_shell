@@ -5,7 +5,7 @@
  * Return: returns
  */
 
-ssize_t execute_command(char **av)
+ssize_t execute_command(char **av, char **argv)
 {
 	int wait_status;
 	char *command;
@@ -19,7 +19,7 @@ ssize_t execute_command(char **av)
 	command = handle_path(av[0]);
 	if (command == NULL)
 	{
-		perror("hsh");
+		error_print(argv[0], av[0]);
 		return (-1);
 	}
 	pid = fork();

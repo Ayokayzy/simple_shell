@@ -5,7 +5,7 @@
  * Return: 0 on success.
  */
 
-int main(void)
+int main(int ac __attribute__((unused)), char **argv)
 {
 	ssize_t chars_read;
 	char *line = NULL, **av = NULL, *delimeter = " \n";
@@ -28,7 +28,7 @@ int main(void)
 			if (is_builtin(av[0]) == 1)
 				handle_builtin(av[0], status, av, line);
 			else
-				execute_command(av);
+				execute_command(av, argv);
 		}
 		free_tokens(av);
 	}
