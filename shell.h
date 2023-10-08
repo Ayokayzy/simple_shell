@@ -29,7 +29,7 @@ int is_builtin(char *command);
 void handle_builtin(char *command, int status, char **av, char *buff);
 void _printenv(void);
 int printchar(char c);
-char *concat2str(char *s1, char *s2);
+char *concat2str(char *a, char *b);
 void printstring(char *str);
 void error_print(char *filename, char *command);
 
