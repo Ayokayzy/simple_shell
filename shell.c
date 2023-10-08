@@ -1,6 +1,12 @@
 #include "shell.h"
 
-int main() {
+/**
+ * main - shell entry point
+ * Return: 0 on success.
+ */
+
+int main(void)
+{
 	ssize_t chars_read;
 	char *line = NULL, **av = NULL, *delimeter = " \n";
 	size_t n = 0;
