@@ -4,6 +4,7 @@
  * get_argv - a function that splits a string and returns an
  * array of each word of the string.
  * @buffer: allocated memory to store strings
+ * @delim: delimeter to tokenize the string
  * Return: an array of tokens
  */
 
@@ -66,4 +67,4 @@ void free_tokens(char **av)
 		idx++;
 	}
 	free(av);
-} 
+}
