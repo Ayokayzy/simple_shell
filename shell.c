@@ -4,6 +4,7 @@ int main() {
 	ssize_t chars_read;
 	char *line = NULL, **av = NULL, *delimeter = " \n";
 	size_t n = 0;
+	int status = 0;
 
 
 	while (1)
@@ -18,7 +19,10 @@ int main() {
 		av = get_argv(line, delimeter);
 		if (av != NULL)
 		{
-			execute_command(av);
+			if (is_builtin(av[0]) == 1)
+				handle_builtin(av[0], status, av, line);
+			else
+				execute_command(av);
 		}
 		free_tokens(av);
 	}

@@ -13,12 +13,13 @@ ssize_t execute_command(char **av)
 
 	if (av == NULL)
 	{
-		fprintf(stderr,  "Invalid command or arguments\n");
+		perror("hsh");
 		return (-1);
 	}
 	command = handle_path(av[0]);
 	if (command == NULL)
 	{
+		perror("hsh");
 		return (-1);
 	}
 	pid = fork();
