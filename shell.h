@@ -28,5 +28,6 @@ void builtin_exit(int status, char **av, char *buff);
 int is_builtin(char *command);
 void handle_builtin(char *command, int status, char **av, char *buff);
 void _printenv(void);
+int printchar(char c);
 
 #endif

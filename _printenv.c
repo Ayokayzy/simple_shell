@@ -6,11 +6,18 @@
 
 void _printenv(void)
 {
-	int idx = 0;
+	int idx = 0, indx2;
 
 	while (environ[idx] != NULL)
 	{
-		printf("%s\n", environ[idx]);
+		indx2 = 0;
+		while ((environ[idx])[indx2])
+		{
+			printchar((environ[idx])[indx2]);
+			indx2++;
+		}
+		printchar('\0');
+		printchar('\n');
 		idx++;
 	}
 }
