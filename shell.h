@@ -12,7 +12,7 @@
 
 extern char **environ;
 
-void prompt();
+void prompt(void);
 char **get_argv(char *buffer, char *delim);
 void free_tokens(char **av);
 void handle_err(char *err, char *command);
