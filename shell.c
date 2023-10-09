@@ -2,10 +2,12 @@
 
 /**
  * main - shell entry point
+ * @argc: number of argument
+ * @argv: argument vectors
  * Return: 0 on success.
  */
 
-int main(int ac __attribute__((unused)), char **argv)
+int main(int argc __attribute__((unused)), char **argv)
 {
 	ssize_t chars_read;
 	char *line = NULL, **av = NULL, *delimeter = " \n";

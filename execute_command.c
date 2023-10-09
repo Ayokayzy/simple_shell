@@ -1,6 +1,7 @@
 #include "shell.h"
 /**
  * execute_command - function that execute commands
+ * @argv: argument vector
  * @av: double pointer argument
  * Return: returns
  */

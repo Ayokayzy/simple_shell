@@ -20,11 +20,13 @@ int printchar(char c)
  */
 
 void printstring(char *str)
+
 {
 	int indx = 0;
+
 	if (!str)
 		return;
-	while(str[indx])
+	while (str[indx])
 	{
 		printchar(str[indx]);
 		indx++;
