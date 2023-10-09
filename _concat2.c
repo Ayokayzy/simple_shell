@@ -25,17 +25,18 @@ char *concat2str(char *s1, char *s2)
 		len_s2++;
 	new_len = len_s1 + len_s2 + 1;
 	new_str = malloc(new_len * sizeof(*new_str));
-	if (new_str)
+	if (new_str == NULL)
 	{
-		for (; i < len_s1; i++)
-			*(new_str + i) = s1[i];
-		for (; j < len_s2; j++)
-		{
-			*(new_str + i) = s2[j];
-			i++;
-		}
-		return (new_str);
-	}
-	else
+		free(new_str);
 		return (NULL);
+	}
+	for (; i < len_s1; i++)
+		*(new_str + i) = s1[i];
+	for (; j < len_s2; j++)
+	{
+		*(new_str + i) = s2[j];
+		i++;
+	}
+	new_str[i] = '\0';
+	return (new_str);
 }

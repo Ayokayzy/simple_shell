@@ -11,7 +11,7 @@ ssize_t execute_command(char **av, char **argv)
 	char *command;
 	pid_t pid;
 
-	if (av == NULL)
+	if (av == NULL || !av)
 	{
 		perror("hsh");
 		return (-1);
