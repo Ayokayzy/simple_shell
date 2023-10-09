@@ -6,7 +6,7 @@
  * Return: returns
  */
 
-ssize_t execute_command(char **av, char **argv)
+ssize_t execute_command(char **av, char **argv, char *line)
 {
 	int wait_status;
 	char *command;
@@ -15,34 +15,39 @@ ssize_t execute_command(char **av, char **argv)
 	if (av == NULL || !av)
 	{
 		perror("hsh");
-		return (-1);
+		return (1);
 	}
 	command = handle_path(av[0]);
 	if (command == NULL)
 	{
 		error_print(argv[0], av[0]);
-		return (-1);
+		return (1);
 	}
 	pid = fork();
 	if (pid == -1)
 	{
-		handle_err("fork", command);
-		return (-1);
+		error_print(argv[0], av[0]);
+		free(command);
+		return (1);
 	}
 	else if (pid == 0)
 	{
 		if (execve(command, av, environ) == -1)
 		{
-			handle_err("execve", command);
-			return (-1);
+			error_print(argv[0], av[0]);
+			free(command);
+			free(line);
+			free_tokens(av);
+			exit(1);
 		}
 	}
 	else
 	{
 		if (wait(&wait_status) == -1)
 		{
-			handle_err("wait", command);
-			return (-1);
+			error_print(argv[0], av[0]);
+			free(command);
+			return (1);
 		}
 	}
 	free(command);

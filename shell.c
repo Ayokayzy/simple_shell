@@ -30,7 +30,7 @@ int main(int argc __attribute__((unused)), char **argv)
 			if (is_builtin(av[0]) == 1)
 				handle_builtin(av[0], status, av, line);
 			else
-				execute_command(av, argv);
+				execute_command(av, argv, line);
 		}
 		free_tokens(av);
 	}
