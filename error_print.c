@@ -8,11 +8,11 @@
 
 void error_print(char *filename, char *command)
 {
-        char *str1, *str2;
+	char *str1, *str2;
 
-        str1 = concat2str(filename, ": 1: ");
-        str2 = _concat(str1, command, ": not found");
-        free(str1);
-        printstring(str2);
-        free(str2);
+	str1 = concat2str(filename, ": 1: ");
+	str2 = _concat(str1, command, ": not found");
+	free(str1);
+	printstring(str2);
+	free(str2);
 }

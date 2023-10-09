@@ -5,7 +5,7 @@
  * Return: 0 on success.
  */
 
-int main(int ac __attribute__((unused)), char **argv)
+int main(void)
 {
 	ssize_t chars_read;
 	char *line = NULL, **av = NULL, *delimeter = " \n";
