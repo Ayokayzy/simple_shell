@@ -16,7 +16,7 @@ void prompt();
 char **get_argv(char *buffer, char *delim);
 void free_tokens(char **av);
 void handle_err(char *err, char *command);
-ssize_t execute_command(char **av, char **argv);
+ssize_t execute_command(char **av);
 int _strlen(char *str);
 char *_concat(char *a, char *b, char *c);
 char *_getenv(const char *name);
