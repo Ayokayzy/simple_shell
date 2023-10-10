@@ -27,7 +27,7 @@ int main(int argc __attribute__((unused)), char **argv)
 		av = get_argv(line, delimeter);
 		if (av != NULL)
 		{
-			if (is_builtin(av[0]) == 1)
+			if (is_builtin(av[0]) == 0)
 				handle_builtin(av[0], status, av, line);
 			else
 				execute_command(av, argv, line);

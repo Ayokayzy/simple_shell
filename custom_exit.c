@@ -11,7 +11,7 @@ void builtin_exit(int status, char **av, char *buff)
 	if (buff != NULL)
 		free(buff);
 	free_tokens(av);
-	if (status == -1)
+	if (status == 1)
 	{
 		fprintf(stderr, "Error: Prgoram exiting with status %d\n", status);
 	}

@@ -34,8 +34,7 @@ ssize_t execute_command(char **av, char **argv, char *line)
 	{
 		if (execve(command, av, environ) == -1)
 		{
-			error_print(argv[0], av[0]);
-			free(command);
+			handle_err(argv[0], command);
 			free(line);
 			free_tokens(av);
 			exit(1);
