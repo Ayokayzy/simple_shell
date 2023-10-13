@@ -45,19 +45,3 @@ char *_which(char *filename)
 	return (NULL);
 }
 
-/*
- * int main()
- * {
- *	char *full_path;
- *
- *	full_path = _which("ls");
- *	if (full_path == NULL)
- *	{
- *	printf("NULL");
- *		return (-1);
- *	}
- *	printf("%s\n", full_path);
- *	free(full_path);
- *	return (0);
- * }
- */
