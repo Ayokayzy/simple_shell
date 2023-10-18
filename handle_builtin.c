@@ -21,20 +21,21 @@ int is_builtin(char *command)
 /**
  * handle_builtin - executes the built in commands
  * @command: the command to be executed
- * @status: the error status
  * @av: the argument variable
- * @buff: the command strings
+ * @line: the buffer
+ * Return: 0 if success 1 if failure
  */
 
-void handle_builtin(char *command, int status, char **av, char *buff)
+int handle_builtin(char *command, char **av, char *line)
 {
 	if (strcmp(command, "env") == 0)
 	{
-		_printenv();
+		return (_printenv());
 	}
 
 	if (strcmp(command, "exit") == 0)
 	{
-		builtin_exit(status, av, buff);
+		return (builtin_exit(av, line));
 	}
+	return (0);
 }

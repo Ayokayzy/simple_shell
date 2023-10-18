@@ -3,14 +3,13 @@
  * execute_command - function that execute commands
  * @argv: argument vector
  * @av: double pointer argument
+ * @line: the buffer
  * Return: returns
  */
 
 ssize_t execute_command(char **av, char **argv, char *line)
 {
-	int wait_status;
 	char *command;
-	pid_t pid;
 
 	if (av == NULL || !av)
 	{
@@ -23,35 +22,10 @@ ssize_t execute_command(char **av, char **argv, char *line)
 		error_print(argv[0], av[0]);
 		return (1);
 	}
-	pid = fork();
-	if (pid == -1)
-	{
-		error_print(argv[0], av[0]);
-		free(command);
-		return (1);
-	}
-	else if (pid == 0)
-	{
-		if (execve(command, av, environ) == -1)
-		{
-			handle_err(argv[0], command);
-			free(line);
-			free_tokens(av);
-			exit(1);
-		}
-	}
-	else
-	{
-		if (wait(&wait_status) == -1)
-		{
-			error_print(argv[0], av[0]);
-			free(command);
-			return (1);
-		}
-	}
-	free(command);
-	return (0);
+	return (_fork(av, argv, command, line));
 }
+
+
 /**
  * handle_err - function that handle error
  * @err: first arg
