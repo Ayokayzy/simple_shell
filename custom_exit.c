@@ -1,20 +1,13 @@
 #include "shell.h"
 /**
  * builtin_exit - function to exit the program
- * @status: first argument that takes in input
  * @av: argument variables
- * @buff: the command string
- * Return: returns (null)
+ * @line: the buffer
+ * Return: returns 0 if success and 1 if failure
  */
-void builtin_exit(int status, char **av, char *buff)
+int builtin_exit(char **av, char *line)
 {
-	if (buff != NULL)
-		free(buff);
 	free_tokens(av);
-	if (status == 1)
-	{
-		fprintf(stderr, "Error: Prgoram exiting with status %d\n", status);
-	}
-
-	exit(status);
+	free(line);
+	exit(98);
 }

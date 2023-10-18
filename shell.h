@@ -24,13 +24,14 @@ int has_path(char *command);
 char *handle_path(char *command);
 char *_which(char *filename);
 char *_strdup(char *str);
-void builtin_exit(int status, char **av, char *buff);
+int builtin_exit(char **av, char *line);
 int is_builtin(char *command);
-void handle_builtin(char *command, int status, char **av, char *buff);
-void _printenv(void);
+int handle_builtin(char *command, char **av, char *line);
+int _printenv(void);
 int printchar(char c);
 char *concat2str(char *a, char *b);
 void printstring(char *str);
 void error_print(char *filename, char *command);
+int _fork(char **av, char **argv, char *command, char *line);
 
 #endif
