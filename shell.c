@@ -12,6 +12,7 @@ int main(int argc __attribute__((unused)), char **argv)
 	ssize_t chars_read;
 	char *line = NULL, **av = NULL, *delimeter = " \n";
 	size_t n = 0;
+	int status = 0;
 
 
 	while (1)
@@ -27,12 +28,12 @@ int main(int argc __attribute__((unused)), char **argv)
 		if (av != NULL)
 		{
 			if (is_builtin(av[0]) == 0)
-				handle_builtin(av[0], av, line);
+				status = handle_builtin(av[0], av, line);
 			else
-				execute_command(av, argv, line);
+				status = execute_command(av, argv, line);
 		}
 		free_tokens(av);
 	}
 	free(line);
-	return (0);
+	return (status);
 }

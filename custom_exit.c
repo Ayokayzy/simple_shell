@@ -9,5 +9,5 @@ int builtin_exit(char **av, char *line)
 {
 	free_tokens(av);
 	free(line);
-	exit(98);
+	exit(0);
 }

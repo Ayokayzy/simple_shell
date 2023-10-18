@@ -20,7 +20,7 @@ ssize_t execute_command(char **av, char **argv, char *line)
 	if (command == NULL)
 	{
 		error_print(argv[0], av[0]);
-		return (1);
+		return (127);
 	}
 	return (_fork(av, argv, command, line));
 }
